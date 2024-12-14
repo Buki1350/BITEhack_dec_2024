@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             isSneaking = false;
         }
 
+
         
         /*
         if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -102,7 +103,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Vertical") == 0) { animator.SetFloat("X_movement", 0); }
         else if (Input.GetAxis("Vertical") > 0) { animator.SetFloat("X_movement", 1); }
         else { animator.SetFloat("X_movement", -1);}
-        
+
+        if (Input.GetAxis("Horizontal") == 0) { animator.SetFloat("Y_movement", 0); }
+        else if (Input.GetAxis("Horizontal") > 0) { animator.SetFloat("Y_movement", -1); }
+        else { animator.SetFloat("Y_movement", 1); }
         //==============================================
     }
 }
