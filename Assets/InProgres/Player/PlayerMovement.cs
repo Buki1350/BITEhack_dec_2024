@@ -95,9 +95,13 @@ public class PlayerMovement : MonoBehaviour
         previousMousePosition = Input.mousePosition;
         
         playerModel.transform.eulerAngles = new Vector3(playerModel.transform.eulerAngles.x, playerCameraHolder.eulerAngles.y, playerModel.transform.transform.eulerAngles.z);
-        
+
         //HERE SPACE FOR ANIMATION VARIABLES AND STUFF IDK
-        
+
+        UnityEngine.Debug.Log(Input.GetAxis("Vertical"));
+        if (Input.GetAxis("Vertical") == 0) { animator.SetFloat("X_movement", 0); }
+        else if (Input.GetAxis("Vertical") > 0) { animator.SetFloat("X_movement", 1); }
+        else { animator.SetFloat("X_movement", -1);}
         
         //==============================================
     }
