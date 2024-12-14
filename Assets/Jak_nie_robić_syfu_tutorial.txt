@@ -1,0 +1,5 @@
+Segregujcie rzeczy po folderach:
+Individual/Imie - robicie tam co chcecie, tymczasowa praca
+Models - same modele
+Scripts - skrypty ogólne
+Presets - gotowe zestawy np. [model + skrypty] (np. Player) i inne rzeczy, które można po prostu przerzucić na scenę.
