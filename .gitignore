@@ -71,6 +71,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+<<<<<<< HEAD
 ProjectSettings/ShaderGraphSettings.asset
 Packages/packages-lock.json
+=======
+Packages/packages-lock.json
+ProjectSettings/ShaderGraphSettings.asset
+>>>>>>> main
 ProjectSettings/TimelineSettings.asset
