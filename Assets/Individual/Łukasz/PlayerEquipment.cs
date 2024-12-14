@@ -85,13 +85,6 @@ public class PlayerEquipment : MonoBehaviour
                 thrownItem.SetActive(true);
                 thrownItem.AddComponent<Rigidbody>();
                 thrownItem.GetComponent<Rigidbody>().AddForce(playerModel.transform.forward * 200);
-                
-                Material[] currentMaterials = thrownItem.GetComponent<MeshRenderer>().materials;
-                Material[] newMaterials = new Material[currentMaterials.Length - 1];
-                for (int i = 0; i < newMaterials.Length; i++)
-                    newMaterials[i] = currentMaterials[i];
-                thrownItem.gameObject.GetComponent<MeshRenderer>().materials = newMaterials;
-                
                 uiItemHolders[currentHoldItemIndex].sprite = defaultItemHolderSprite;
                 Destroy(equipment[currentHoldItemIndex]);
                 equipment[currentHoldItemIndex] = null;
