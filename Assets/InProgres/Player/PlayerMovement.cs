@@ -76,8 +76,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            UnityEngine.Debug.Log(isSneaking);
-
             controller.Move(move * (Time.deltaTime * playerSpeed));
             isSneaking = false;
         }
