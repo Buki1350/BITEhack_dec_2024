@@ -33,9 +33,9 @@ public class doors : MonoBehaviour
         {
             additionalRotation = 90 * (currentTime / timeForOpenDoors);
             leftDoorOrigin.transform.localEulerAngles = new Vector3(leftDoorOrigin.transform.localEulerAngles.x,
-                -additionalRotation, leftDoorOrigin.transform.localEulerAngles.z);
+                180-additionalRotation, leftDoorOrigin.transform.localEulerAngles.z);
             rightDoorOrigin.transform.localEulerAngles = new Vector3(leftDoorOrigin.transform.localEulerAngles.x,
-                additionalRotation, leftDoorOrigin.transform.localEulerAngles.z);
+                -180+additionalRotation, leftDoorOrigin.transform.localEulerAngles.z);
             currentTime += Time.deltaTime;
         }
     }

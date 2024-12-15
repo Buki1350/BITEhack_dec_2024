@@ -21,7 +21,7 @@ public class PlayerEquipment : MonoBehaviour
     [HideInInspector] public List<bool> itemUiCreated = new List<bool>(); 
     
     private int currentHoldItemIndex = 0;
-    public Sprite defaultItemHolderSprite; 
+    [HideInInspector] public Sprite defaultItemHolderSprite; 
     void Start()
     {
         defaultItemHolderSprite = uiItemHolders[0].GetComponent<Image>().sprite;

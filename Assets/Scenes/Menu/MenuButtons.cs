@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 using Image = UnityEngine.UI.Image;
 
 public class MenuButtons : MonoBehaviour
@@ -16,6 +17,16 @@ public class MenuButtons : MonoBehaviour
     public void StartButton()
     {
         startButtonPressed = true;
+    }
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 
     private void Update()

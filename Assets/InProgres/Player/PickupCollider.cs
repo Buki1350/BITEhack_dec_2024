@@ -80,7 +80,7 @@ public class PickupCollider : MonoBehaviour
                     foundKey = true;
             }
 
-            if (!foundKey)
+            if (!foundKey && !doors.GetComponent<doors>().openDoors)
             {
                 itemInfo.text = "Klucz do tych drzwi znajdywał się w tym miejscu, jednak dawno obrócił się w pył...";
             }

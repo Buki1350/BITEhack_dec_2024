@@ -2421,6 +2421,7 @@ GameObject:
   - component: {fileID: 8680224252561000273}
   - component: {fileID: 3366664031306748791}
   - component: {fileID: 3057037472580486897}
+  - component: {fileID: 809338954052864653}
   m_Layer: 8
   m_Name: Player final
   m_TagString: Player
@@ -2519,6 +2520,24 @@ MonoBehaviour:
   currentItemBorder: {fileID: 0}
   equipment: []
   itemUiCreated: 
+  defaultItemHolderSprite: {fileID: 0}
+--- !u!114 &809338954052864653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048732637077685918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289f8586fa6eac547b78ae5eb0a33f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTravelDuration: 5
+  uiTimeTravelLine: {fileID: 0}
+  playerCamera: {fileID: 0}
+  whiteOutImage: {fileID: 0}
+  playerClone: {fileID: 0}
 --- !u!1 &6264185743224675378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2768,7 @@ MonoBehaviour:
   playerEquipment: {fileID: 3057037472580486897}
   pickableLayer: 0
   outlineMaterial: {fileID: 2100000, guid: 42e7b7c9597654046b03e2b02bf51117, type: 2}
+  itemInfo: {fileID: 0}
 --- !u!54 &7503136059646659774
 Rigidbody:
   m_ObjectHideFlags: 0

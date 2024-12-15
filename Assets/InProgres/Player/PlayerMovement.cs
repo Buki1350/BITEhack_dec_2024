@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         move.y = 0;
         if (Input.GetButton("Sneak"))
         {
-            UnityEngine.Debug.Log(isSneaking);
             controller.Move(move * (Time.deltaTime * playerSpeed)*sneakingSpeedMod);
             isSneaking = true;
         }

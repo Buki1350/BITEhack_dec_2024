@@ -23,6 +23,7 @@ public class PlayerTimeTravel : MonoBehaviour
     
     
     [SerializeField] private GameObject playerClone;
+    [SerializeField] GameObject thisOnePointOnTheStructure;
     Vector3 playerCloneOffset = Vector3.zero;
     private bool teleported = false;
     private bool isSwapped = false;
@@ -37,12 +38,16 @@ public class PlayerTimeTravel : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(Vector3.Distance(playerClone.transform.position, thisOnePointOnTheStructure.transform.position));
         if (!isResting)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                isInOtherTime = true;
-                isAnimating = true;
+                if (Vector3.Distance(playerClone.transform.position, thisOnePointOnTheStructure.transform.position) < 25.0f)
+                {
+                    isInOtherTime = true;
+                    isAnimating = true;
+                }
             }
 
             if (currentTime > 0 && isInOtherTime)
