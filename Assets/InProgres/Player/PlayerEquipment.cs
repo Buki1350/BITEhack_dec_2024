@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
@@ -20,7 +21,7 @@ public class PlayerEquipment : MonoBehaviour
     [HideInInspector] public List<bool> itemUiCreated = new List<bool>(); 
     
     private int currentHoldItemIndex = 0;
-    private Sprite defaultItemHolderSprite; 
+    public Sprite defaultItemHolderSprite; 
     void Start()
     {
         defaultItemHolderSprite = uiItemHolders[0].GetComponent<Image>().sprite;
