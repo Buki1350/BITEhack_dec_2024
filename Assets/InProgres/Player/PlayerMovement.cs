@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro.Examples;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -40,10 +41,14 @@ public class PlayerMovement : MonoBehaviour
         previousMousePosition = Input.mousePosition;
         
         Cursor.lockState = CursorLockMode.Locked;
+
+
     }
+   
 
     void Update()
     {
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
             playerVelocity.y = 0f;
@@ -75,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
             isSneaking = false;
         }
 
+
         
         /*
         if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -88,15 +94,34 @@ public class PlayerMovement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        
-        playerCameraHolder.eulerAngles += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * mouseSensitivity;
+
+        // Get the current camera rotation
+        Vector3 cameraRotation = playerCameraHolder.eulerAngles;
+
+        // Adjust the vertical rotation (pitch) using the mouse Y input
+        float verticalRotation = cameraRotation.x - Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        // Clamp the vertical rotation between -5 and 25 degrees
+        if (verticalRotation > 180) verticalRotation -= 360; // Handle angles greater than 180
+        verticalRotation = Mathf.Clamp(verticalRotation, -5, 25);
+
+        // Update the camera's rotation
+        playerCameraHolder.eulerAngles = new Vector3(verticalRotation, cameraRotation.y + Input.GetAxis("Mouse X") * mouseSensitivity, 0);
+
         previousMousePosition = Input.mousePosition;
         
         playerModel.transform.eulerAngles = new Vector3(playerModel.transform.eulerAngles.x, playerCameraHolder.eulerAngles.y, playerModel.transform.transform.eulerAngles.z);
-        
+
         //HERE SPACE FOR ANIMATION VARIABLES AND STUFF IDK
-        
-        
+
+        UnityEngine.Debug.Log(Input.GetAxis("Vertical"));
+        if (Input.GetAxis("Vertical") == 0) { animator.SetFloat("X_movement", 0); }
+        else if (Input.GetAxis("Vertical") > 0) { animator.SetFloat("X_movement", 1); }
+        else { animator.SetFloat("X_movement", -1);}
+
+        if (Input.GetAxis("Horizontal") == 0) { animator.SetFloat("Y_movement", 0); }
+        else if (Input.GetAxis("Horizontal") > 0) { animator.SetFloat("Y_movement", -1); }
+        else { animator.SetFloat("Y_movement", 1); }
         //==============================================
     }
 }

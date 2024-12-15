@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Bridge
-  - BridgeGate
-  - Room
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -14,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - BridgeGate
-  - Pickable
-  - Player
-  - PickupCollider
-  - TimeTravelVolume
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
