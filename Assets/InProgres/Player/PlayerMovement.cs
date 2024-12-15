@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool isSneaking;
+
     [SerializeField] float mouseSensitivity = 0.8f;
     [SerializeField] Transform playerCameraHolder; 
     [SerializeField] GameObject playerModel;
@@ -15,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     [SerializeField] private float playerSpeed = 5.0f;
-    private float jumpHeight = 3.0f;
+    //private float jumpHeight = 3.0f;
     private float gravityValue = -30.0f;
     
     private bool isMovingRight;
@@ -23,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isMovingForward;
     private bool isMovingBackwards;
     private bool isJumping;
+
+    private float sneakingSpeedMod=0.75f;
+    
 
     private Vector3 previousMousePosition = Vector3.zero;
 
@@ -53,10 +59,26 @@ public class PlayerMovement : MonoBehaviour
         //=====================================
         
         Vector3 move = new Vector3(horizontalInput, 0, verticalInput);
+
+        
         move = playerCameraHolder.transform.right * move.x + playerCameraHolder.transform.forward * move.z;
         move.y = 0;
-        controller.Move(move * (Time.deltaTime * playerSpeed));
+        if (Input.GetButton("Sneak"))
+        {
+            UnityEngine.Debug.Log(isSneaking);
+            controller.Move(move * (Time.deltaTime * playerSpeed)*sneakingSpeedMod);
+            isSneaking = true;
+        }
+        else
+        {
+            UnityEngine.Debug.Log(isSneaking);
+
+            controller.Move(move * (Time.deltaTime * playerSpeed));
+            isSneaking = false;
+        }
+
         
+        /*
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
@@ -64,7 +86,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             isJumping = false;
-        
+        */
+
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         
