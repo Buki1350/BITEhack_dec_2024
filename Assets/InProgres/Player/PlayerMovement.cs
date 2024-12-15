@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro.Examples;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -40,10 +41,14 @@ public class PlayerMovement : MonoBehaviour
         previousMousePosition = Input.mousePosition;
         
         Cursor.lockState = CursorLockMode.Locked;
+
+
     }
+   
 
     void Update()
     {
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
             playerVelocity.y = 0f;
